@@ -4,9 +4,9 @@
     <section>
       <div class="mx-4 lg:mx-auto mt-20 max-w-4xl">
         <h1 class="font-bold uppercase tracking-wide mb-8">Leaderboard</h1>
-        <leaderboard-card title="The Best Vacation Ever" city="Paris" />
-        <leaderboard-card title="Digital Nomad Paradise" city="Chiang Mai" />
-        <leaderboard-card title="Becoming Batman" city="Gotham" />
+        <leaderboard-card title="The Best Vacation Ever" city="Paris" :likes="57" />
+        <leaderboard-card title="Digital Nomad Paradise" city="Chiang Mai" :likes="42" />
+        <leaderboard-card title="Becoming Batman" city="Gotham" :likes="23" />
       </div>
     </section>
   </div>
