@@ -1,5 +1,5 @@
 <template>
-  <article class="flex justify-between items-center bg-white rounded p-6 uppercase">
+  <article class="flex justify-between items-center bg-white rounded p-6 uppercase mb-6">
     <div class="flex">
       <img class="h-32 hidden md:block" src="https://via.placeholder.com/150" alt="Dream trip">
       <div class="flex flex-col justify-between ml-4">
