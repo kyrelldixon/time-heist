@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <nav class="bg-black text-white flex justify-between items-center px-8 py-4">
+  <div class="bg-gray-200 h-screen">
+    <nav class="bg-black text-white flex justify-between items-center px-4 md:px-8 py-4">
       <p class="uppercase tracking-widest">Time Heist</p>
       <div>
         <button class="uppercase text-xs">Log In</button>
