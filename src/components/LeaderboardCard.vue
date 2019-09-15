@@ -22,10 +22,19 @@
 
 <script>
 export default {
-  props: [
-    "title",
-    "city",
-    "likes",
-  ]
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    likes: {
+      type: Number,
+      required: true,
+    },
+  }
 }
 </script>
