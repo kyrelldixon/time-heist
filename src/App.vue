@@ -5,8 +5,8 @@
       <div class="mx-4 lg:mx-auto mt-20 max-w-4xl">
         <h1 class="font-bold uppercase tracking-wide mb-8">Leaderboard</h1>
         <leaderboard-card 
-          v-for="trip in trips"
-          :key="trip.title"
+          v-for="(trip, id) in trips"
+          :key="id"
           :title="trip.title"
           :city="trip.city"
           :likes="trip.likes"
