@@ -9,28 +9,28 @@
     </nav>
 
     <section>
-      <h1>Leaderboard</h1>
-      <ul>
-        <li>
-          <article>
-            <img src="" alt="Dream trip">
-            <div>
-              <div>
-                <p>Title</p>
-                <p>City</p>
-              </div>
-              <div>
-                <span>Posted by</span>
-                <img src="" alt="Profile">
+      <div class="mx-4 lg:mx-auto mt-20 max-w-4xl">
+        <h1 class="font-bold uppercase tracking-wide mb-8">Leaderboard</h1>
+          <article class="flex justify-between items-center bg-white rounded p-6 uppercase">
+            <div class="flex">
+              <img class="h-32 hidden md:block" src="https://via.placeholder.com/150" alt="Dream trip">
+              <div class="flex flex-col justify-between ml-4">
+                <div class="mb-4">
+                  <p class="font-bold text-sm">Title</p>
+                  <p>City</p>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-xs text-gray-700 mr-2">Posted by</span>
+                  <img class="h-4 rounded-full" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
+                </div>
               </div>
             </div>
+            <button class="font-bold flex flex-col py-4 px-8 bg-gray-100 border border-gray-300 rounded">
+              <span role="img" aria-label="up arrow">🔝</span>
+              <span>23</span>
+            </button>
           </article>
-          <button>
-            <span role="img" aria-label="up arrow">🔝</span>
-            23
-          </button>
-        </li>
-      </ul>
+      </div>
     </section>
   </div>
 </template>
