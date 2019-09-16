@@ -28,16 +28,16 @@ export default {
     return {
       trips: [
         {
-          id: 1,
-          title: "The Best Vacation Ever",
-          city: "Paris",
-          likes: 57,
-        },
-        {
           id: 2,
           title: "Digital Nomad Paradise",
           city: "Chiang Mai",
           likes: 42,
+        },
+        {
+          id: 1,
+          title: "The Best Vacation Ever",
+          city: "Paris",
+          likes: 57,
         },
         {
           id: 3,
