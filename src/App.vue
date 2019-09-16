@@ -8,6 +8,7 @@
           v-for="trip in trips"
           :key="trip.id"
           :trip="trip"
+          :upVote="upVote"
         />
       </div>
     </section>
@@ -47,5 +48,18 @@ export default {
       ],
     }
   },
+  methods: {
+    upVote: function(id) {
+      this.trips = this.trips.map(trip => {
+        if (trip.id === id) {
+          return {
+            ...trip,
+            likes: trip.likes + 1
+          }
+        }
+        return trip;
+      });
+    }
+  }
 }
 </script>

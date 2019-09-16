@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <button class="font-bold flex flex-col py-4 px-8 bg-gray-100 border border-gray-300 rounded">
+    <button @click="upVote(trip.id)" class="font-bold flex flex-col py-4 px-8 bg-gray-100 border border-gray-300 rounded">
       <span role="img" aria-label="up arrow">🔝</span>
       <span>{{ trip.likes }}</span>
     </button>
@@ -25,8 +25,12 @@ export default {
   props: {
     trip: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
+    upVote: {
+      type: Function,
+      required: true,
+    },
   },
 }
 </script>
