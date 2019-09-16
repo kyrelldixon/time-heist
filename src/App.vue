@@ -5,7 +5,7 @@
       <div class="mx-4 lg:mx-auto mt-20 max-w-4xl">
         <h1 class="font-bold uppercase tracking-wide mb-8">Leaderboard</h1>
         <leaderboard-card 
-          v-for="trip in trips"
+          v-for="trip in sortedTrips"
           :key="trip.id"
           :trip="trip"
           :upVote="upVote"
@@ -46,6 +46,11 @@ export default {
           likes: 23,
         },
       ],
+    }
+  },
+  computed: {
+    sortedTrips: function() {
+      return [...this.trips].sort((a, b) => b.likes - a.likes)
     }
   },
   methods: {
