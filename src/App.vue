@@ -5,11 +5,9 @@
       <div class="mx-4 lg:mx-auto mt-20 max-w-4xl">
         <h1 class="font-bold uppercase tracking-wide mb-8">Leaderboard</h1>
         <leaderboard-card 
-          v-for="(trip, id) in trips"
-          :key="id"
-          :title="trip.title"
-          :city="trip.city"
-          :likes="trip.likes"
+          v-for="trip in trips"
+          :key="trip.id"
+          :trip="trip"
         />
       </div>
     </section>
@@ -29,16 +27,19 @@ export default {
     return {
       trips: [
         {
+          id: 1,
           title: "The Best Vacation Ever",
           city: "Paris",
           likes: 57,
         },
         {
+          id: 2,
           title: "Digital Nomad Paradise",
           city: "Chiang Mai",
           likes: 42,
         },
         {
+          id: 3,
           title: "Becoming Batman",
           city: "Gotham",
           likes: 23,
