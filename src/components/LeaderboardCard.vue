@@ -1,5 +1,5 @@
 <template>
-  <article class="flex justify-between items-center bg-white rounded p-6 uppercase mb-6">
+  <article class="flex justify-between items-center bg-white rounded-lg p-6 uppercase mb-6 shadow-md">
     <div class="flex">
       <img class="h-32 hidden md:block" src="https://via.placeholder.com/150" alt="Dream trip">
       <div class="flex flex-col justify-between ml-4">
@@ -13,9 +13,9 @@
         </div>
       </div>
     </div>
-    <button @click="upVote(trip.id)" class="font-bold flex flex-col py-4 px-8 bg-gray-100 border border-gray-300 rounded">
-      <span role="img" aria-label="up arrow">🔝</span>
-      <span>{{ trip.likes }}</span>
+    <button @click="upVote(trip.id)" class="group font-bold flex flex-col py-4 px-6 bg-gray-100 border border-gray-300 rounded hover:bg-gradient">
+      <span class="h-4" role="img" aria-label="up arrow">🔝</span>
+      <span class="group-hover:text-white">{{ trip.likes }}</span>
     </button>
   </article>
 </template>
@@ -34,3 +34,7 @@ export default {
   },
 }
 </script>
+
+<style>
+
+</style>

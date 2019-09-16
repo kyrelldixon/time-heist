@@ -1,15 +1,11 @@
 <template>
-  <nav class="bg-black text-white flex justify-between items-center px-4 md:px-8 py-4">
-      <p class="uppercase tracking-widest">Time Heist</p>
+  <nav class="bg-black text-white px-4 md:px-8 py-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <img class="h-12" src="../assets/logo.png" />
       <div>
         <button class="uppercase text-xs">Log In</button>
         <button class="uppercase text-xs px-4 py-2 bg-gradient rounded ml-4">Sign Up</button>
       </div>
+    </div>
     </nav>
 </template>
-
-<style scoped>
-  .bg-gradient {
-    background: linear-gradient(to top right,#af35f1, #fa9a5e);
-  }
-</style>
