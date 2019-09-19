@@ -20,7 +20,7 @@ import Navbar from '../components/Navbar'
 
 export default {
   components: {
-    navbar: Navbar
+    navbar: Navbar,
   }
 }
 </script>
