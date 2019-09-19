@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import routes from './routes'
-import App from './App.vue'
+import Layout from './components/Layout'
 
 import './assets/styles/tailwind.css'
 
@@ -17,5 +17,5 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  render: h => h(App),
+  render: h => h(Layout),
 }).$mount('#app')
