@@ -8,9 +8,11 @@
       <p class="mb-8 sm:mb-12 sm:text-lg md:mb-12 opacity-75">
         Add places you want to go with people you want to go with and start checking them off your list.
       </p>
-      <button class="uppercase text-sm px-10 py-4 bg-gradient rounded ml-4 sm:text-lg md:text-lg">
-        Sign Up
-      </button>
+      <router-link to="/register">
+        <button class="uppercase text-sm px-10 py-4 bg-gradient rounded ml-4 sm:text-lg md:text-lg">
+          Sign Up
+        </button>
+      </router-link>
     </div>
   </section>
 </template>
