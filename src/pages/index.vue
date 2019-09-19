@@ -1,7 +1,6 @@
 <template>
   <section class="bg-black h-screen text-white">
-    <navbar />
-    <div class="text-center max-w-xl mt-32 mx-8 sm:mx-auto sm:mt-24 md:mt-20">
+    <div class="text-center max-w-xl pt-32 mx-8 sm:mx-auto sm:pt-24 md:pt-20">
       <h1 class="font-bold text-3xl mb-4 sm:text-5xl md:text-5xl md:mb-6">
         Wish List of Trips for You and Your Friends
       </h1>
@@ -16,13 +15,3 @@
     </div>
   </section>
 </template>
-
-<script>
-import Navbar from '../components/Navbar'
-
-export default {
-  components: {
-    navbar: Navbar,
-  }
-}
-</script>
