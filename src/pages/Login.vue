@@ -10,7 +10,7 @@
           </router-link>
         </p>
       </div>
-      <form class="max-w-sm">
+      <form @submit.prevent="login" class="max-w-sm">
         <div class="mb-4">
           <label class="block mb-2 text-sm" for="email">Email Address</label>
           <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="your@email.com"></div>
@@ -31,6 +31,11 @@ import Button from '../components/Button'
 export default {
   components: {
     "styled-button": Button
+  },
+  methods: {
+    login: function() {
+      this.$router.push('/home')
+    }
   }
 }
 </script>

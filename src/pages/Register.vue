@@ -10,7 +10,7 @@
           </router-link>
         </p>
       </div>
-      <form class="max-w-sm">
+      <form @submit.prevent="register" class="max-w-sm">
         <div class="mb-4">
           <label class="block mb-2 text-sm" for="name">Name</label>
           <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
@@ -38,6 +38,11 @@ import Button from '../components/Button'
 export default {
   components: {
     "styled-button": Button
+  },
+  methods: {
+    register: function() {
+      this.$router.push('/login')
+    }
   }
 }
 </script>
