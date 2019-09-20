@@ -5,9 +5,19 @@
       <div>
         <button class="uppercase text-xs">Log In</button>
         <router-link to="/register">
-          <button class="uppercase text-xs px-4 py-2 bg-gradient rounded ml-4">Sign Up</button>
+          <styled-button class="ml-4">Sign Up</styled-button>
         </router-link>
       </div>
     </div>
     </nav>
 </template>
+
+<script>
+import Button from '../components/Button'
+
+export default {
+  components: {
+    "styled-button": Button
+  }
+}
+</script>

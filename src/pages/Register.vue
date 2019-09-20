@@ -21,8 +21,18 @@
           <label class="block mb-2 text-sm" for="password">Password</label>
           <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password">
         </div>
-        <button class="uppercase text-xs px-4 py-2 bg-gradient rounded">Create Account</button>
+        <styled-button>Create Account</styled-button>
       </form>
     </div>
   </section>
 </template>
+
+<script>
+import Button from '../components/Button'
+
+export default {
+  components: {
+    "styled-button": Button
+  }
+}
+</script>
