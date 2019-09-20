@@ -1,6 +1,6 @@
 <template>
-  <section class="bg-gray-200 h-screen">
-    <div class="mx-4 lg:mx-auto pt-20 max-w-4xl">
+  <section class="bg-gray-200 pt-20 pb-2">
+    <div class="mx-4 max-w-4xl lg:mx-auto">
       <h1 class="font-bold uppercase tracking-wide mb-8">Leaderboard</h1>
       <leaderboard-card 
         v-for="trip in sortedTrips"
