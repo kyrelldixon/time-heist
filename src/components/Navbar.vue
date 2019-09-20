@@ -23,7 +23,8 @@ export default {
   },
   methods: {
     isHidden: function() {
-      return this.$route.path === '/register'
+      const { path } = this.$route
+      return path === '/register' || path === '/login'
     }
   }
 }
