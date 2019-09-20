@@ -3,7 +3,12 @@
     <div class="max-w-sm mx-auto">
       <div class="mb-6">
         <h1 class="text-3xl tracking-wide font-bold mb-1 leading-tight">Create Your Account</h1>
-        <p class="text-sm">Already have an account? <span class="text-gradient">Log In</span></p>
+        <p class="text-sm">
+          Already have an account? 
+          <router-link to="/login">
+            <span class="text-gradient">Log In</span>
+          </router-link>
+        </p>
       </div>
       <form class="max-w-sm">
         <div class="mb-4">
