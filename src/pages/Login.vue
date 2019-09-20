@@ -18,7 +18,7 @@
           <label class="block mb-2 text-sm" for="password">Password</label>
           <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password">
         </div>
-        <styled-button class="mb-3">Create Account</styled-button>
+        <styled-button class="mb-3 px-6">Log In</styled-button>
         <p class="text-gradient text-sm cursor-pointer">Forgot Password?</p>
       </form>
     </div>
