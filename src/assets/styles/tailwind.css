@@ -5,5 +5,11 @@
   .bg-gradient {
     background: linear-gradient(to top right,#af35f1, #fa9a5e);
   }
+
+  .text-gradient {
+    @apply bg-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 @tailwind utilities;
