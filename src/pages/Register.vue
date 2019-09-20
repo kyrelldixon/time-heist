@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-black text-white h-screen pt-8 px-4 sm:pt-10 md">
+  <section class="bg-black text-white h-screen pt-8 px-4 sm:pt-10">
     <div class="max-w-sm mx-auto">
       <div class="mb-6">
         <h1 class="text-3xl tracking-wide font-bold mb-1 leading-tight">Create Your Account</h1>
