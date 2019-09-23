@@ -13,18 +13,39 @@
       <form @submit.prevent="register" class="max-w-sm">
         <div class="mb-4">
           <label class="block mb-2 text-sm" for="name">Name</label>
-          <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
+          <input 
+            id="name"
+            class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            v-model.trim="name"
+            placeholder="Your Name">
         </div>
         <div class="mb-4">
           <label class="block mb-2 text-sm" for="email">Email Address</label>
-          <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="your@email.com"></div>
+          <input
+            id="email"
+            class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline"
+            type="email"
+            v-model.trim="email"
+            placeholder="your@email.com">
+        </div>
         <div class="mb-4">
-          <label class="block mb-2 text-sm" for="username">Username</label>
-          <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="your_username">
+          <label class="block mb-2 text-sm" for="password">Password</label>
+          <input
+            id="password"
+            class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline"
+            type="password"
+            v-model="password"
+            placeholder="Password">
         </div>
         <div class="mb-8">
-          <label class="block mb-2 text-sm" for="password">Password</label>
-          <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password">
+          <label class="block mb-2 text-sm" for="confirm-password">Confirm Password</label>
+          <input
+            id="confirm-password"
+            class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline"
+            type="password"
+            v-model="confirmPassword"
+            placeholder="Confirm Password">
         </div>
         <styled-button>Create Account</styled-button>
       </form>
@@ -36,6 +57,14 @@
 import Button from '../components/Button'
 
 export default {
+  data: function() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    }
+  },
   components: {
     "styled-button": Button
   },
