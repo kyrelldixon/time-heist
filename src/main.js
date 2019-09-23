@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuelidate from 'vuelidate'
 
 import routes from './routes'
 import Layout from './components/Layout'
@@ -7,6 +8,7 @@ import Layout from './components/Layout'
 import './assets/styles/tailwind.css'
 
 Vue.use(VueRouter)
+Vue.use(Vuelidate)
 
 const router = new VueRouter({
   mode: 'history',
