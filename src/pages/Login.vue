@@ -10,13 +10,30 @@
           </router-link>
         </p>
       </div>
-      <form @submit.prevent="login" class="max-w-sm">
+      <form @submit.prevent="onSubmit" class="max-w-sm" novalidate>
         <div class="mb-4">
           <label class="block mb-2 text-sm" for="email">Email Address</label>
-          <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="your@email.com"></div>
+          <input
+            id="email"
+            class="text-gray-700 rounded w-full py-2 px-2 leading-tight border focus:outline-none focus:shadow-outline mb-1"
+            :class="{'border-red-500': $v.email.$error}"
+            type="text"
+            v-model="$v.email.$model"
+            placeholder="your@email.com"
+          >
+          <p v-if="$v.email.$error && !$v.email.required" class="text-red-500 text-xs italic">Email is required.</p>
+        </div>
         <div class="mb-8">
           <label class="block mb-2 text-sm" for="password">Password</label>
-          <input class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password">
+          <input
+            id="password"
+            class="text-gray-700 rounded w-full py-2 px-2 leading-tight border focus:outline-none focus:shadow-outline mb-1"
+            :class="{'border-red-500': $v.password.$error}"
+            type="password"
+            v-model="$v.password.$model"
+            placeholder="Password"
+          >
+          <p v-if="$v.password.$error && !$v.password.required" class="text-red-500 text-xs italic">Password is required.</p>
         </div>
         <styled-button class="mb-3 px-6">Log In</styled-button>
         <p class="text-gradient text-sm cursor-pointer">Forgot Password?</p>
@@ -26,13 +43,37 @@
 </template>
 
 <script>
+import { required } from 'vuelidate/lib/validators';
 import Button from '../components/Button'
 
 export default {
   components: {
     "styled-button": Button
   },
+  data: function() {
+    return {
+      email: '',
+      password: '',
+    }
+  },
+  validations: {
+    email: {
+      required,
+    },
+    password: {
+      required,
+    }
+  },
   methods: {
+    onSubmit: function() {
+      if (this.$v.$invalid) {
+        this.$v.$touch()
+        // eslint-disable-next-line
+        console.log('There ARE ERRORS')
+      } else {
+        this.login()
+      }
+    },
     login: function() {
       this.$router.push('/home')
     }
