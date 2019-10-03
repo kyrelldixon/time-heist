@@ -10,14 +10,14 @@
           </router-link>
         </p>
       </div>
-      <form @submit.prevent="register" class="max-w-sm">
+      <form @submit.prevent="onSubmit" class="max-w-sm" formnovalidate>
         <div class="mb-4">
           <label class="block mb-2 text-sm" for="name">Name</label>
           <input 
             id="name"
             class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
-            v-model.trim="name"
+            v-model.trim="$v.name.$model"
             placeholder="Your Name">
         </div>
         <div class="mb-4">
@@ -26,7 +26,7 @@
             id="email"
             class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline"
             type="email"
-            v-model.trim="email"
+            v-model.trim="$v.email.$model"
             placeholder="your@email.com">
         </div>
         <div class="mb-4">
@@ -35,7 +35,7 @@
             id="password"
             class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline"
             type="password"
-            v-model="password"
+            v-model="$v.password.$model"
             placeholder="Password">
         </div>
         <div class="mb-8">
@@ -44,7 +44,7 @@
             id="confirm-password"
             class="text-gray-700 rounded w-full py-2 px-2 leading-tight focus:outline-none focus:shadow-outline"
             type="password"
-            v-model="confirmPassword"
+            v-model="$v.confirmPassword.$model"
             placeholder="Confirm Password">
         </div>
         <styled-button>Create Account</styled-button>
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import { required, sameAs, minLength } from 'vuelidate/lib/validators';
 import Button from '../components/Button'
 
 export default {
@@ -65,10 +66,34 @@ export default {
       confirmPassword: '',
     }
   },
+  validations: {
+    name: {
+      required,
+    },
+    email: {
+      required,
+    },
+    password: {
+      required,
+      minLength: minLength(6),
+    },
+    confirmPassword: {
+      required,
+      sameAsPassword: sameAs('password'),
+    },
+  },
   components: {
     "styled-button": Button
   },
   methods: {
+    onSubmit: function() {
+      if (this.$v.$invalid) {
+        // eslint-disable-next-line
+        console.log('There ARE ERRORS')
+      } else {
+        this.register()
+      }
+    },
     register: function() {
       this.$router.push('/login')
     }
