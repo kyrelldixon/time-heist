@@ -11,6 +11,15 @@ const routes = [
   {
     path: '/',
     component: Landing,
+    beforeEnter: (to, from, next) => {
+      // the new homepage is '/home' if you are logged in
+      // so this will always redirect there
+      if (store.state.auth.isLoggedIn) {
+        next('/home')
+        return
+      }
+      next()
+    }
   },
   {
     path: '/home',
@@ -36,7 +45,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)) {
-    if (store.getters.isLoggedIn) {
+    if (store.state.auth.isLoggedIn) {
       next()
       return
     }
