@@ -4,7 +4,8 @@
       <router-link to="/"><img class="h-12" src="../assets/logo.png" /></router-link>
       <div v-if="$store.state.auth.isLoggedIn" class="flex items-center" :class="{hidden: isHidden()}">
         <span class="mr-4 text-xl cursor-pointer" role="img" aria-label="add trip">+</span>
-        <img class="h-8 rounded-full" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
+        <img class="h-8 rounded-full mr-4" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
+        <button class="uppercase text-xs" @click="logout">Logout</button>
       </div>
       <div v-else :class="{hidden: isHidden()}">
         <router-link to="/login">
@@ -29,6 +30,11 @@ export default {
     isHidden: function() {
       const { path } = this.$route
       return path === '/register' || path === '/login'
+    },
+    logout: function() {
+      this.$store.dispatch('logout').then(() => {
+        this.$router.push('/login')
+      })
     }
   }
 }
