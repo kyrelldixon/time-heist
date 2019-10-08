@@ -75,7 +75,9 @@ export default {
       }
     },
     login: function() {
-      this.$router.push('/home')
+      this.$store.dispatch('login').then(() => {
+        this.$router.push('/home')
+      })
     }
   }
 }
