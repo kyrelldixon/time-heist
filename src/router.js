@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
 
 import Leaderboard from './pages/Leaderboard'
-import Landing from './pages'
+import Landing from './pages/Landing'
 import Register from './pages/Register'
 import Login from './pages/Login'
 
