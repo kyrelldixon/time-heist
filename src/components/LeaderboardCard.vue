@@ -1,10 +1,12 @@
 <template>
   <article class="flex justify-between items-center bg-white rounded-lg p-6 uppercase mb-6 shadow-md">
     <div class="flex">
-      <img class="h-32 hidden md:block" src="https://via.placeholder.com/150" alt="Dream trip">
+      <router-link :to="`/trip/${trip.id}`">
+        <img class="h-32 hidden md:block" src="https://via.placeholder.com/150" alt="Dream trip">
+      </router-link>
       <div class="flex flex-col justify-between ml-4">
         <div class="mb-4">
-          <p class="font-bold text-sm">{{ trip.title }}</p>
+          <router-link :to="`/trip/${trip.id}`" class="font-bold text-sm">{{ trip.title }}</router-link>
           <p>{{ trip.city }}</p>
         </div>
         <div class="flex items-center">
