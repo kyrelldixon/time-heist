@@ -35,7 +35,7 @@
           >
           <p v-if="$v.password.$error && !$v.password.required" class="text-red-500 text-xs italic">Password is required.</p>
         </div>
-        <styled-button class="mb-3 px-6">Log In</styled-button>
+        <styled-button class="mb-3 px-6 py-2">Log In</styled-button>
         <p class="text-gradient text-sm cursor-pointer">Forgot Password?</p>
       </form>
     </div>
