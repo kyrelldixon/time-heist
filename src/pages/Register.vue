@@ -103,14 +103,16 @@ export default {
     onSubmit: function() {
       if (this.$v.$invalid) {
         this.$v.$touch()
-        // eslint-disable-next-line
-        console.log('There ARE ERRORS')
       } else {
         this.register()
       }
     },
     register: function() {
-      this.$router.push('/login')
+      this.$store.dispatch('register', { email: this.email, password: this.password })
+      .then(() => {
+        this.$router.push('/home')
+      })
+      .catch(err => alert(err.code))
     }
   }
 }
