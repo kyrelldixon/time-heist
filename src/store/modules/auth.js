@@ -1,13 +1,23 @@
+import { Auth } from '../../firebase/auth'
+
 const state = {
   isLoggedIn: false,
 }
 
 const actions = {
-  login({ commit }) {
-    commit('setIsLoggedIn', true)
+  login({ commit }, { email, password }) {
+    return Auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      commit('setIsLoggedIn', true)
+    })
+    .catch(err => { throw err })
   },
   logout({ commit }) {
-    commit('setIsLoggedIn', false)
+    return Auth.signOut()
+    .then(() => {
+      commit('setIsLoggedIn', false)
+    })
+    .catch(err => { throw err })
   },
 }
 

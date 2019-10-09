@@ -68,16 +68,16 @@ export default {
     onSubmit: function() {
       if (this.$v.$invalid) {
         this.$v.$touch()
-        // eslint-disable-next-line
-        console.log('There ARE ERRORS')
       } else {
         this.login()
       }
     },
     login: function() {
-      this.$store.dispatch('login').then(() => {
+      this.$store.dispatch('login', { email: this.email, password: this.password })
+      .then(() => {
         this.$router.push('/home')
       })
+      .catch(err => alert(err.code))
     }
   }
 }
