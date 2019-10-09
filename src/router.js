@@ -4,6 +4,8 @@ import Leaderboard from './pages/Leaderboard'
 import Landing from './pages/Landing'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import TripDetails from './pages/TripDetails'
+import CreateTrip from './pages/CreateTrip'
 
 import store from './store'
 
@@ -35,6 +37,20 @@ const routes = [
   {
     path: '/login',
     component: Login,
+  },
+  {
+    path: '/create',
+    component: CreateTrip,
+    meta: {
+      // requiresAuth: true,
+    },
+  },
+  {
+    path: '/trip/:id',
+    component: TripDetails,
+    meta: {
+      // requiresAuth: true,
+    },
   },
 ]
 
