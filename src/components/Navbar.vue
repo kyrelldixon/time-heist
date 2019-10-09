@@ -12,7 +12,7 @@
           <button class="uppercase text-xs">Log In</button>
         </router-link>
         <router-link to="/register">
-          <styled-button class="ml-4">Sign Up</styled-button>
+          <styled-button class="ml-4 px-4 py-2">Sign Up</styled-button>
         </router-link>
       </div>
     </div>

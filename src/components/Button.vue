@@ -1,5 +1,7 @@
 <template>
-  <button class="uppercase text-xs px-4 py-2 bg-gradient rounded">
+  <button
+    class="uppercase text-xs bg-gradient rounded text-white"
+  >
     <slot />
   </button>
 </template>
