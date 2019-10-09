@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="bg-gray-200 min-h-screen">
     <navbar />
     <router-view />
   </section>
