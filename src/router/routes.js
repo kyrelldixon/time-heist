@@ -25,7 +25,7 @@ export default [
     path: '/home',
     component: Leaderboard,
     meta: {
-      requiresAuth: true,
+      // requiresAuth: true,
     },
   },
   {
