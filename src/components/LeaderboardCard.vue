@@ -17,7 +17,7 @@
     </div>
     <button @click="upVote(trip.id)" class="group font-bold flex flex-col py-4 px-6 bg-gray-100 border border-gray-300 rounded hover:bg-gradient">
       <span class="h-4" role="img" aria-label="up arrow">🔝</span>
-      <span class="group-hover:text-white">{{ trip.likes }}</span>
+      <span class="group-hover:text-white">{{ trip.votes }}</span>
     </button>
   </article>
 </template>

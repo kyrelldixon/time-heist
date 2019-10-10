@@ -4,19 +4,19 @@ const state = {
       id: 2,
       title: "Digital Nomad Paradise",
       city: "Chiang Mai",
-      likes: 42,
+      votes: 42,
     },
     {
       id: 1,
       title: "The Best Vacation Ever",
       city: "Paris",
-      likes: 57,
+      votes: 57,
     },
     {
       id: 3,
       title: "Becoming Batman",
       city: "Gotham",
-      likes: 23,
+      votes: 23,
     },
   ],
 }
@@ -26,21 +26,21 @@ const getters = {
     return state.trips.find(trip => trip.id === id)
   },
   sortedTrips: state => {
-    return [...state.trips].sort((a, b) => b.likes - a.likes)
+    return [...state.trips].sort((a, b) => b.votes - a.votes)
   },
 }
 
 const actions = {
   upVote({ commit }, id) {
-    commit('incrementTripLikes', id)
+    commit('incrementTripVotes', id)
   },
 }
 
 const mutations = {
-  incrementTripLikes(state, id) {
+  incrementTripVotes(state, id) {
     state = state.trips.map(trip => {
       if (trip.id === id) {
-        trip.likes++
+        trip.votes++
       }
       return trip
     })
