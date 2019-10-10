@@ -4,7 +4,7 @@
       <div class="flex justify-between items-end w-full mb-10">
         <div class="flex">
           <img
-            class="h-32 block mr-4"
+            class="hidden h-32 mr-4 sm:block"
             src="https://via.placeholder.com/150"
             alt="Dream trip"
           >
