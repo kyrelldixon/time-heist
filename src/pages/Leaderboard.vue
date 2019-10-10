@@ -19,46 +19,14 @@ export default {
   components: {
     'leaderboard-card': LeaderboardCard,
   },
-  data: function() {
-    return {
-      trips: [
-        {
-          id: 2,
-          title: "Digital Nomad Paradise",
-          city: "Chiang Mai",
-          likes: 42,
-        },
-        {
-          id: 1,
-          title: "The Best Vacation Ever",
-          city: "Paris",
-          likes: 57,
-        },
-        {
-          id: 3,
-          title: "Becoming Batman",
-          city: "Gotham",
-          likes: 23,
-        },
-      ],
-    }
-  },
   computed: {
     sortedTrips: function() {
-      return [...this.trips].sort((a, b) => b.likes - a.likes)
+      return this.$store.getters.sortedTrips
     }
   },
   methods: {
     upVote: function(id) {
-      this.trips = this.trips.map(trip => {
-        if (trip.id === id) {
-          return {
-            ...trip,
-            likes: trip.likes + 1
-          }
-        }
-        return trip;
-      });
+      this.$store.dispatch('upVote', id)
     }
   }
 }
