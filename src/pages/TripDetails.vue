@@ -1,3 +1,62 @@
 <template>
-  <p>Trip Details component</p>
+  <section class="bg-gray-200 py-20">
+    <div class="mx-4 max-w-4xl sm:mx-auto">
+      <div class="flex mb-10">
+        <img
+          class="h-32 block mr-4"
+          src="https://via.placeholder.com/150"
+          alt="Dream trip"
+        >
+        <div class="flex flex-col uppercase">
+          <p class="mb-2 font-semibold text-lg">Title</p>
+          <p>City</p>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <div class="bg-white p-6 mr-6 max-w-3xl">
+          <img class="block mb-4" src="https://via.placeholder.com/600x400" alt="Dream trip">
+          <div class="flex mb-8">
+            <div class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
+            <div class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
+            <div class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
+          </div>
+          <hr class="mb-4" />
+          <p>
+            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
+            galley of type and scrambled it to make a type specimen book. It has survived not only five 
+            centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was 
+            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+            and more recently with desktop.
+          </p>
+        </div>
+        <div class="flex flex-col">
+          <button class="font-bold flex py-4 px-8 bg-gradient border border-gray-300 rounded text-white mb-4">
+            <span class="h-4 mr-2" role="img" aria-label="up arrow">🔝</span>
+            <span class="mr-2">Upvote</span>
+            <span class="">23</span>
+          </button>
+          <div class="bg-white border border-gray-300 uppercase p-2">
+            <div>
+              <p class="text-xs text-gray-700 mb-1">Posted by</p>
+              <div class="flex items-center mb-6">
+                <img class="h-12 rounded-full block mr-2" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
+                <p class="text-xs">David M.</p>
+              </div>
+            </div>
+            <div>
+              <p class="text-xs text-gray-700 mb-1">Upvoted by</p>
+              <div class="flex">
+                <img class="h-12 rounded-full block" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
+                <img class="h-12 rounded-full block -ml-6" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
+                <img class="h-12 rounded-full block -ml-6" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
+                <img class="h-12 rounded-full block -ml-6" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
+                <img class="h-12 rounded-full block -ml-6" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
