@@ -8,15 +8,15 @@
             src="https://via.placeholder.com/150"
             alt="Dream trip"
           >
-          <div class="flex flex-col uppercase">
-            <p class="mb-2 font-semibold text-lg">Title</p>
-            <p>City</p>
+          <div class="flex flex-col uppercase mr-4">
+            <p class="mb-2 font-semibold text-lg">{{ trip.title }}</p>
+            <p>{{ trip.city }}</p>
           </div>
         </div>
-        <button class="font-bold flex py-2 px-4 bg-gradient border border-gray-300 rounded text-white md:hidden">
+        <button @click="upVote" class="font-bold flex py-2 px-4 bg-gradient border border-gray-300 rounded text-white md:hidden">
           <span class="h-4 mr-2" role="img" aria-label="up arrow">🔝</span>
           <span class="mr-2">Upvote</span>
-          <span class="">23</span>
+          <span class="">{{ trip.votes }}</span>
         </button>
       </div>
       <div class="flex justify-between">
@@ -38,10 +38,10 @@
           </p>
         </div>
         <div class="hidden md:flex md:flex-col">
-          <button class="font-bold flex py-4 px-8 bg-gradient border border-gray-300 rounded text-white mb-4">
+          <button @click="upVote" class="font-bold flex py-4 px-8 bg-gradient border border-gray-300 rounded text-white mb-4">
             <span class="h-4 mr-2" role="img" aria-label="up arrow">🔝</span>
             <span class="mr-2">Upvote</span>
-            <span class="">23</span>
+            <span class="">{{ trip.votes }}</span>
           </button>
           <div class="bg-white border border-gray-300 uppercase p-2">
             <div>
@@ -67,3 +67,22 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data: function() {
+    return {
+      trip: {}
+    }
+  },
+  created: function() {
+    const tripId = parseInt(this.$route.params.id)
+    this.trip = this.$store.getters.getTripById(tripId)
+  },
+  methods: {
+    upVote: function() {
+      this.$store.dispatch('upVote', this.trip.id)
+    }
+  }
+}
+</script>
