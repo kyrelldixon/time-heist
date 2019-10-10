@@ -1,21 +1,28 @@
 <template>
   <section class="bg-gray-200 py-20">
-    <div class="mx-4 max-w-4xl sm:mx-auto">
-      <div class="flex mb-10">
-        <img
-          class="h-32 block mr-4"
-          src="https://via.placeholder.com/150"
-          alt="Dream trip"
-        >
-        <div class="flex flex-col uppercase">
-          <p class="mb-2 font-semibold text-lg">Title</p>
-          <p>City</p>
+    <div class="flex flex-col items-start mx-4 max-w-4xl lg:mx-auto">
+      <div class="flex justify-between items-end w-full mb-10">
+        <div class="flex">
+          <img
+            class="h-32 block mr-4"
+            src="https://via.placeholder.com/150"
+            alt="Dream trip"
+          >
+          <div class="flex flex-col uppercase">
+            <p class="mb-2 font-semibold text-lg">Title</p>
+            <p>City</p>
+          </div>
         </div>
+        <button class="font-bold flex py-2 px-4 bg-gradient border border-gray-300 rounded text-white md:hidden">
+          <span class="h-4 mr-2" role="img" aria-label="up arrow">🔝</span>
+          <span class="mr-2">Upvote</span>
+          <span class="">23</span>
+        </button>
       </div>
       <div class="flex justify-between">
-        <div class="bg-white p-6 mr-6 max-w-3xl">
-          <img class="block mb-4" src="https://via.placeholder.com/600x400" alt="Dream trip">
-          <div class="flex mb-8">
+        <div class="bg-white p-6 max-w-3xl md:mr-8">
+          <img class="block mb-4 mx-auto" src="https://via.placeholder.com/600x400" alt="Dream trip">
+          <div class="flex mb-8 justify-center">
             <div class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
             <div class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
             <div class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
@@ -30,7 +37,7 @@
             and more recently with desktop.
           </p>
         </div>
-        <div class="flex flex-col">
+        <div class="hidden md:flex md:flex-col">
           <button class="font-bold flex py-4 px-8 bg-gradient border border-gray-300 rounded text-white mb-4">
             <span class="h-4 mr-2" role="img" aria-label="up arrow">🔝</span>
             <span class="mr-2">Upvote</span>
