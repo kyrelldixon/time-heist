@@ -47,7 +47,10 @@ const actions = {
     commit('incrementTripVotes', id)
   },
   create({ commit }, trip) {
+    trip.id = Math.floor(Math.random() * 100000)
+    trip.votes = 1
     commit('createTrip', trip)
+    return trip.id
   }
 }
 
@@ -61,8 +64,6 @@ const mutations = {
     })
   },
   createTrip(state, trip) {
-    trip.id = Math.floor(Math.random() * 100000)
-    trip.votes = 0
     state.trips = [...state.trips, trip]
   }
 }

@@ -102,8 +102,8 @@ export default {
   },
   methods: {
     onSubmit: function() {
-      this.$store.dispatch('create', this.trip).then(() => {
-        this.$router.push('/home')
+      this.$store.dispatch('create', this.trip).then((id) => {
+        this.$router.push(`/trip/${id}`)
       })
     }
   }
