@@ -46,6 +46,9 @@ const actions = {
   upVote({ commit }, id) {
     commit('incrementTripVotes', id)
   },
+  create({ commit }, trip) {
+    commit('createTrip', trip)
+  }
 }
 
 const mutations = {
@@ -56,6 +59,11 @@ const mutations = {
       }
       return trip
     })
+  },
+  createTrip(state, trip) {
+    trip.id = Math.floor(Math.random() * 100000)
+    trip.votes = 0
+    state.trips = [...state.trips, trip]
   }
 }
 

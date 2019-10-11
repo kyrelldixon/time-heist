@@ -90,9 +90,21 @@ export default {
       description: '',
     }
   },
+  computed: {
+    trip: function() {
+      return {
+        title: this.title,
+        city: this.city,
+        state: this.state,
+        description: this.description,
+      }
+    }
+  },
   methods: {
     onSubmit: function() {
-      alert(`Creating trip: ${this.title}`)
+      this.$store.dispatch('create', this.trip).then(() => {
+        this.$router.push('/home')
+      })
     }
   }
 }
