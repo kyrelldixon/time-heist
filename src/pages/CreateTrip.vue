@@ -2,13 +2,14 @@
   <section class="bg-gray-200 pt-20 pb-2">
     <div class="mx-4 max-w-3xl sm:mx-auto">
       <h1 class="font-semibold text-2xl mb-6">Tell Us More About Your Time Heist</h1>
-      <form class="px-4 bg-white border border-gray-400 py-10 md:px-16">
+      <form @submit.prevent="onSubmit" class="px-4 bg-white border border-gray-400 py-10 md:px-16">
         <div>
           <label class="block text-lg font-semibold mb-2">Name of Time Heist</label>
           <input
             class="text-gray-700 rounded w-full py-2 px-2 leading-tight border focus:outline-none focus:shadow-outline mb-6"
             type="text"
             placeholder="Chiang Mai Digital Nomad"
+            v-model="title"
           />
         </div>
         <div class="flex flex-col w-full sm:flex-row sm:justify-between">
@@ -18,6 +19,7 @@
               class="text-gray-700 rounded w-full py-2 px-2 leading-tight border focus:outline-none focus:shadow-outline mb-6"
               type="text"
               placeholder="Chiang Mai"
+              v-model="city"
             />
           </div>
           <div class="sm:w-1/2">
@@ -26,6 +28,7 @@
               class="text-gray-700 rounded w-full py-2 px-2 leading-tight border focus:outline-none focus:shadow-outline mb-6"
               type="text"
               placeholder="Thailand"
+              v-model="state"
             />
           </div>
         </div>
@@ -60,7 +63,11 @@
         </div>
         <div>
           <label class="block text-lg font-semibold mb-2">Description</label>
-          <textarea class="border border-gray-300 w-full h-24 rounded mb-10 p-2" placeholder="Short message describing the trip"/>
+          <textarea
+            class="border border-gray-300 w-full h-24 rounded mb-10 p-2"
+            placeholder="Short message describing the trip"
+            v-model="description"
+          />
         </div>
         <styled-button class="py-4 px-10 text-sm">Create Trip</styled-button>
       </form>
@@ -75,5 +82,18 @@ export default {
   components: {
     'styled-button': Button,
   },
+  data: function() {
+    return {
+      title: '',
+      city: '',
+      state: '',
+      description: '',
+    }
+  },
+  methods: {
+    onSubmit: function() {
+      alert(`Creating trip: ${this.title}`)
+    }
+  }
 }
 </script>
