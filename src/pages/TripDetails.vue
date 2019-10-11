@@ -10,7 +10,7 @@
           >
           <div class="flex flex-col uppercase mr-4">
             <p class="mb-2 font-semibold text-lg">{{ trip.title }}</p>
-            <p>{{ trip.city }}</p>
+            <p>{{ trip.city }}, {{ trip.state }}</p>
           </div>
         </div>
         <button @click="upVote" class="font-bold flex py-2 px-4 bg-gradient border border-gray-300 rounded text-white md:hidden">
@@ -29,12 +29,7 @@
           </div>
           <hr class="mb-4" />
           <p>
-            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
-            galley of type and scrambled it to make a type specimen book. It has survived not only five 
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was 
-            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-            and more recently with desktop.
+            {{ trip.description }}
           </p>
         </div>
         <div class="hidden md:flex md:flex-col">

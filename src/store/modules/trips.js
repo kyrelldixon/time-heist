@@ -2,21 +2,33 @@ const state = {
   trips: [
     {
       id: 2,
-      title: "Digital Nomad Paradise",
-      city: "Chiang Mai",
+      title: 'Digital Nomad Paradise',
+      city: 'Chiang Mai',
+      state: 'Thailand',
       votes: 42,
+      description: `Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
+            galley of type and scrambled it to make a type specimen book.`
     },
     {
       id: 1,
-      title: "The Best Vacation Ever",
-      city: "Paris",
+      title: 'The Best Vacation Ever',
+      city: 'Paris',
+      state: 'France',
       votes: 57,
+      description: `Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
+            galley of type and scrambled it to make a type specimen book.`
     },
     {
       id: 3,
-      title: "Becoming Batman",
-      city: "Gotham",
+      title: 'Becoming Batman',
+      city: 'Gotham',
+      state: 'New York',
       votes: 23,
+      description: `Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
+            galley of type and scrambled it to make a type specimen book.`
     },
   ],
 }
