@@ -11,13 +11,23 @@
             placeholder="Chiang Mai Digital Nomad"
           />
         </div>
-        <div>
-          <label class="block text-lg font-semibold mb-2">City, State, or Country</label>
-          <input
-            class="text-gray-700 rounded w-full py-2 px-2 leading-tight border focus:outline-none focus:shadow-outline mb-6"
-            type="text"
-            placeholder="Where you want to go"
-          />
+        <div class="flex flex-col w-full sm:flex-row sm:justify-between">
+          <div class="sm:w-1/2 sm:mr-4">
+            <label class="block text-lg font-semibold mb-2">City</label>
+            <input
+              class="text-gray-700 rounded w-full py-2 px-2 leading-tight border focus:outline-none focus:shadow-outline mb-6"
+              type="text"
+              placeholder="Chiang Mai"
+            />
+          </div>
+          <div class="sm:w-1/2">
+            <label class="block text-lg font-semibold mb-2">State or Country</label>
+            <input
+              class="text-gray-700 rounded w-full py-2 px-2 leading-tight border focus:outline-none focus:shadow-outline mb-6"
+              type="text"
+              placeholder="Thailand"
+            />
+          </div>
         </div>
         <div>
           <label class="block text-lg font-semibold mb-2">Thumbnail</label>
@@ -29,7 +39,8 @@
             </label>
             <div class="text-sm font-semibold">
               <p>Recommended Size: 240x240</p>
-              <p>JPG, PNG, GIF. Max Size: 2MB</p>
+              <p>JPG, PNG, GIF.</p>
+              <p>Max Size: 2MB</p>
             </div>
           </div>
         </div>
