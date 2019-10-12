@@ -1,16 +1,13 @@
-import Leaderboard from '../pages/Leaderboard'
-import Landing from '../pages/Landing'
-import Register from '../pages/Register'
-import Login from '../pages/Login'
-import TripDetails from '../pages/TripDetails'
-import CreateTrip from '../pages/CreateTrip'
-
 import store from '../store'
+
+function lazyLoad(page){
+  return() => import(`../pages/${page}.vue`)
+}
 
 export default [
   {
     path: '/',
-    component: Landing,
+    component: lazyLoad('Landing'),
     beforeEnter: (to, from, next) => {
       // the new homepage is '/home' if you are logged in
       // so this will always redirect there
@@ -23,29 +20,29 @@ export default [
   },
   {
     path: '/home',
-    component: Leaderboard,
+    component: lazyLoad('Leaderboard'),
     meta: {
       requiresAuth: true,
     },
   },
   {
     path: '/register',
-    component: Register,
+    component: lazyLoad('Register'),
   },
   {
     path: '/login',
-    component: Login,
+    component: lazyLoad('Login'),
   },
   {
     path: '/create',
-    component: CreateTrip,
+    component: lazyLoad('CreateTrip'),
     meta: {
       requiresAuth: true,
     },
   },
   {
     path: '/trip/:id',
-    component: TripDetails,
+    component: lazyLoad('TripDetails'),
     meta: {
       requiresAuth: true,
     },
