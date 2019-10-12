@@ -1,15 +1,21 @@
 import { Auth } from '../../firebase/auth'
 
 const state = {
-  isLoggedIn: false,
+  currentUser: null,
 }
 
 const actions = {
   login({ commit }, { email, password }) {
     commit('setIsLoading', true)
     return Auth.signInWithEmailAndPassword(email, password)
-    .then(() => {
-      commit('setIsLoggedIn', true)
+    .then(({ user }) => {
+      const currentUser = {
+        id: user.uid,
+        name: user.displayName,
+        email: user.email,
+        profilePicture: user.photoURL,
+      }
+      commit('setCurrentUser', currentUser)
       commit('setIsLoading', false)
     })
     .catch(err => { 
@@ -21,7 +27,7 @@ const actions = {
     commit('setIsLoading', true)
     return Auth.signOut()
     .then(() => {
-      commit('setIsLoggedIn', false)
+      commit('setCurrentUser', null)
       commit('setIsLoading', false)
     })
     .catch(err => { 
@@ -32,10 +38,16 @@ const actions = {
   register({ commit }, { email, password }) {
     commit('setIsLoading', true)
     return Auth.createUserWithEmailAndPassword(email, password)
-    .then(() => {
+    .then(({ user }) => {
+      const currentUser = {
+        id: user.uid,
+        name: user.displayName,
+        email: user.email,
+        profilePicture: user.photoURL,
+      }
       // user is automatically logged in when account is registered
       // so update state to reflect that
-      commit('setIsLoggedIn', true)
+      commit('setCurrentUser', currentUser)
       commit('setIsLoading', false)
     })
     .catch(err => {
@@ -46,13 +58,18 @@ const actions = {
 }
 
 const mutations = {
-  setIsLoggedIn(state, isLoggedIn) {
-    state.isLoggedIn = isLoggedIn
+  setCurrentUser(state, user) {
+    state.currentUser = user
   }
+}
+
+const getters = {
+  isLoggedIn: ({ currentUser }) => currentUser !== null
 }
 
 export default {
   state,
   actions,
+  getters,
   mutations,
 }
