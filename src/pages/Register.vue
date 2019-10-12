@@ -82,7 +82,7 @@ export default {
   },
   computed: {
     buttonText: function() {
-      return this.$store.getters.isLoading ? 'Loading...' : 'Create Account'
+      return this.$store.state.utils.isLoading ? 'Loading...' : 'Create Account'
     }
   },
   validations: {

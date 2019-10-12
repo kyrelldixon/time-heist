@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     buttonText: function() {
-      return this.$store.getters.isLoading ? 'Loading...' : 'Log In'
+      return this.$store.state.utils.isLoading ? 'Loading...' : 'Log In'
     }
   },
   validations: {
