@@ -50,8 +50,14 @@ const actions = {
       throw err
     })
   },
-  autoLoginUser({ commit }, user) {
-    commit('setCurrentUser', getUserInfo(user))
+  autoLoginUser({ commit }) {
+    commit('setIsLoading', true)
+    Auth.onAuthStateChanged((user) => {
+      if (user) {
+        commit('setCurrentUser', getUserInfo(user))
+      }
+      commit('setIsLoading', false)
+    })
   }
 }
 
