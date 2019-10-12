@@ -25,7 +25,7 @@ export default [
     path: '/home',
     component: Leaderboard,
     meta: {
-      // requiresAuth: true,
+      requiresAuth: true,
     },
   },
   {
@@ -40,14 +40,14 @@ export default [
     path: '/create',
     component: CreateTrip,
     meta: {
-      // requiresAuth: true,
+      requiresAuth: true,
     },
   },
   {
     path: '/trip/:id',
     component: TripDetails,
     meta: {
-      // requiresAuth: true,
+      requiresAuth: true,
     },
   },
 ]
