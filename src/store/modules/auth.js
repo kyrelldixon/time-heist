@@ -1,5 +1,12 @@
 import { Auth } from '../../firebase/auth'
 
+const getUserInfo = (firebaseUser) => ({
+  id: firebaseUser.uid,
+  name: firebaseUser.displayName,
+  email: firebaseUser.email,
+  profilePicture: firebaseUser.photoURL,
+})
+
 const state = {
   currentUser: null,
 }
@@ -9,13 +16,7 @@ const actions = {
     commit('setIsLoading', true)
     return Auth.signInWithEmailAndPassword(email, password)
     .then(({ user }) => {
-      const currentUser = {
-        id: user.uid,
-        name: user.displayName,
-        email: user.email,
-        profilePicture: user.photoURL,
-      }
-      commit('setCurrentUser', currentUser)
+      commit('setCurrentUser', getUserInfo(user))
       commit('setIsLoading', false)
     })
     .catch(err => { 
@@ -39,15 +40,9 @@ const actions = {
     commit('setIsLoading', true)
     return Auth.createUserWithEmailAndPassword(email, password)
     .then(({ user }) => {
-      const currentUser = {
-        id: user.uid,
-        name: user.displayName,
-        email: user.email,
-        profilePicture: user.photoURL,
-      }
       // user is automatically logged in when account is registered
       // so update state to reflect that
-      commit('setCurrentUser', currentUser)
+      commit('setCurrentUser', getUserInfo(user))
       commit('setIsLoading', false)
     })
     .catch(err => {
@@ -56,12 +51,7 @@ const actions = {
     })
   },
   autoLoginUser({ commit }, user) {
-    commit('setCurrentUser', {
-      id: user.uid,
-      name: user.displayName,
-      email: user.email,
-      profilePicture: user.photoURL,
-    })
+    commit('setCurrentUser', getUserInfo(user))
   }
 }
 
