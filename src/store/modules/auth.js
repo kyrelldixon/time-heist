@@ -54,6 +54,14 @@ const actions = {
       commit('setIsLoading', false)
       throw err
     })
+  },
+  autoLoginUser({ commit }, user) {
+    commit('setCurrentUser', {
+      id: user.uid,
+      name: user.displayName,
+      email: user.email,
+      profilePicture: user.photoURL,
+    })
   }
 }
 
