@@ -1,8 +1,7 @@
 <template>
   <section class="bg-gray-200 min-h-screen">
     <navbar />
-    <!-- <loading v-if="$store.state.utils.isLoading && !$store.getters.isLoggedIn" /> -->
-    <loading v-if="true" />
+    <loading v-if="$store.state.utils.isLoading && !$store.getters.isLoggedIn" />
     <router-view v-else/>
   </section>
 </template>
