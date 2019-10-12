@@ -61,7 +61,7 @@
           <p v-if="$v.confirmPassword.$error && !$v.confirmPassword.required" class="text-red-500 text-xs italic">Confirm password is required.</p>
           <p v-if="$v.confirmPassword.$error && !$v.confirmPassword.sameAs" class="text-red-500 text-xs italic">Password should be same as above.</p>
         </div>
-        <styled-button :disabled="$store.state.utils.isLoading" class="px-4 py-2">{{ buttonText }}</styled-button>
+        <styled-button :disabled="$store.state.utils.isLoading" class="px-4 py-2">Create Account</styled-button>
       </form>
     </div>
   </section>
@@ -78,11 +78,6 @@ export default {
       email: '',
       password: '',
       confirmPassword: '',
-    }
-  },
-  computed: {
-    buttonText: function() {
-      return this.$store.state.utils.isLoading ? 'Loading...' : 'Create Account'
     }
   },
   validations: {
