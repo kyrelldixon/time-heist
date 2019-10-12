@@ -14,7 +14,7 @@ export default [
     beforeEnter: (to, from, next) => {
       // the new homepage is '/home' if you are logged in
       // so this will always redirect there
-      if (store.state.auth.isLoggedIn) {
+      if (store.getters.isLoggedIn) {
         next('/home')
         return
       }
