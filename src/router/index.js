@@ -9,6 +9,9 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  // Prevent unauthorized route access by redirecting to login page
+  // if user attempte to access a route that requires auth
+  // while not logged in
   if(to.matched.some(record => record.meta.requiresAuth)) {
     if (store.getters.isLoggedIn) {
       next()
