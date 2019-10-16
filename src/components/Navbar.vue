@@ -1,7 +1,7 @@
 <template>
   <nav class="bg-black text-white px-4 md:px-8 py-4">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <router-link to="/"><img class="h-12" src="../assets/logo.png" /></router-link>
+      <router-link :to="homePath"><img class="h-12" src="../assets/logo.png" /></router-link>
       <div v-if="$store.getters.isLoggedIn" class="flex items-center" :class="{hidden: isHidden()}">
         <router-link to="/create" class="mr-4 text-xl cursor-pointer" role="img" aria-label="add trip">+</router-link>
         <img class="h-8 rounded-full mr-4" src="https://randomuser.me/api/portraits/men/86.jpg" alt="Profile">
@@ -25,6 +25,11 @@ import Button from '../components/Button'
 export default {
   components: {
     "styled-button": Button
+  },
+  computed: {
+    homePath: function() {
+      return this.$store.getters.isLoggedIn ? '/home' : '/'
+    },
   },
   methods: {
     isHidden: function() {
