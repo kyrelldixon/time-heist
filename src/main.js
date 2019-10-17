@@ -16,7 +16,7 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  beforeCreate() {
+  created() {
     store.dispatch('autoLoginUser')
   },
   render: h => h(Layout),
