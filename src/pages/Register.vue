@@ -72,6 +72,11 @@ import { required, sameAs, minLength } from 'vuelidate/lib/validators';
 import Button from '../components/Button'
 
 export default {
+  created() {
+    if (this.$store.getters.isLoggedIn) {
+      this.$router.push('/home')
+    }
+  },
   data: function() {
     return {
       name: '',

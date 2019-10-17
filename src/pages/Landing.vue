@@ -15,3 +15,13 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  created() {
+    if (this.$store.getters.isLoggedIn) {
+      this.$router.push('/home')
+    }
+  },
+}
+</script>
