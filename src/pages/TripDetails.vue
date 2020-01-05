@@ -71,7 +71,7 @@ export default {
     }
   },
   created: function() {
-    const tripId = parseInt(this.$route.params.id)
+    const tripId = this.$route.params.id
     this.trip = this.$store.getters.getTripById(tripId)
   },
   methods: {
