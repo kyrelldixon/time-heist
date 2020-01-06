@@ -118,7 +118,7 @@ export default {
       }
     },
     createTrip: function() {
-      this.$store.dispatch('create', this.trip).then((id) => {
+      this.$store.dispatch('createTrip', this.trip).then((id) => {
         this.$router.push(`/trip/${id}`)
       })
     }
