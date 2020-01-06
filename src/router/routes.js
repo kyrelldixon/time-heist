@@ -43,8 +43,5 @@ export default [
   {
     path: '/trip/:id',
     component: lazyLoad('TripDetails'),
-    meta: {
-      requiresAuth: true,
-    },
   },
 ]
