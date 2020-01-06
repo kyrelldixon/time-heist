@@ -1,36 +1,7 @@
+import tripsAPI from '@/api/trips'
+
 const state = {
-  trips: [
-    {
-      id: 2,
-      title: 'Digital Nomad Paradise',
-      city: 'Chiang Mai',
-      state: 'Thailand',
-      votes: 42,
-      description: `Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
-            galley of type and scrambled it to make a type specimen book.`
-    },
-    {
-      id: 1,
-      title: 'The Best Vacation Ever',
-      city: 'Paris',
-      state: 'France',
-      votes: 57,
-      description: `Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
-            galley of type and scrambled it to make a type specimen book.`
-    },
-    {
-      id: 3,
-      title: 'Becoming Batman',
-      city: 'Gotham',
-      state: 'New York',
-      votes: 23,
-      description: `Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
-            galley of type and scrambled it to make a type specimen book.`
-    },
-  ],
+  trips: [],
 }
 
 const getters = {
@@ -46,11 +17,18 @@ const actions = {
   upVote({ commit }, id) {
     commit('incrementTripVotes', id)
   },
-  create({ commit }, trip) {
-    trip.id = Math.floor(Math.random() * 100000)
+  async getAllTrips({ commit }) {
+    commit('setIsLoading', true)
+    const trips = await tripsAPI.getTrips()
+    commit('setTrips', trips)
+    commit('setIsLoading', false)
+  },
+  async createTrip({ commit }, trip) {
     trip.votes = 1
-    commit('createTrip', trip)
-    return trip.id
+    commit('setIsLoading', true)
+    const newTrip = await tripsAPI.createTrip(trip)
+    commit('setIsLoading', false)
+    return newTrip.id
   }
 }
 
@@ -65,6 +43,9 @@ const mutations = {
   },
   createTrip(state, trip) {
     state.trips = [...state.trips, trip]
+  },
+  setTrips(state, trips) {
+    state.trips = trips
   }
 }
 
