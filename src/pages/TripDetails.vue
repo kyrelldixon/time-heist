@@ -1,6 +1,6 @@
 <template>
   <section class="bg-gray-200 py-20">
-    <div class="flex flex-col items-start mx-4 max-w-4xl lg:mx-auto">
+    <div v-if="trip && !$store.state.utils.isLoading" class="flex flex-col items-start mx-4 max-w-4xl lg:mx-auto">
       <div class="flex justify-between items-end w-full mb-10">
         <div class="flex">
           <img
@@ -60,6 +60,7 @@
         </div>
       </div>
     </div>
+    <p v-else>There is no trip</p>
   </section>
 </template>
 
@@ -67,12 +68,18 @@
 export default {
   data: function() {
     return {
-      trip: {}
+      trip: null
     }
   },
   created: function() {
     const tripId = this.$route.params.id
-    this.trip = this.$store.getters.getTripById(tripId)
+    if (this.$store.getters.sortedTrips.length === 0) {
+      this.$store.dispatch('getAllTrips').then(() => {
+        this.trip = this.$store.getters.getTripById(tripId)
+      })
+    } else {
+      this.trip = this.$store.getters.getTripById(tripId)
+    }
   },
   methods: {
     upVote: function() {
