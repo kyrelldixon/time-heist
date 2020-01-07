@@ -11,6 +11,13 @@
 - [ ] Upload images firebase
 - [ ] Upload images UI
 - [ ] Fix loading styles
+- [ ] Make loading state more specific
+
+### Todo details
+
+Currently the upvote function is working, but it causes the entire page to enter a loading state. It is temporarily fixed by not triggering any loading state and pre-emptively incrementing the vote, but it would be better if only the upvote button would show a loading state and only upvote on a successful API submission.
+
+An alternative solution would be to change the app into a realtime app so that I could remove loading states altogether. This will be an optimization for after the initial project is completely functional.
 
 ## Project setup
 
