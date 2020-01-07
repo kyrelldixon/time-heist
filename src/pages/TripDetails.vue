@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     upVote: function() {
-      this.$store.dispatch('upVote', this.trip.id)
+      this.$store.dispatch('upVoteTrip', this.trip.id)
     }
   }
 }

@@ -8,7 +8,13 @@ export default {
     return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
   },
   async createTrip(trip) {
-    const newTrip = await tripsDB.add(trip)
-    return newTrip
+    const newTripRef = await tripsDB.add(trip)
+    return newTripRef.data()
+  },
+  async upVoteTrip(id) {
+    const tripRef = await tripsDB.doc(id).get()
+    let trip = tripRef.data()
+    trip.votes++
+    await tripsDB.doc(id).set(trip)
   }
 }

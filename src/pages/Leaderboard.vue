@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     upVote: function(id) {
-      this.$store.dispatch('upVote', id)
+      this.$store.dispatch('upVoteTrip', id)
     }
   }
 }

@@ -2,7 +2,7 @@
 
 ## Todo
 
-- [ ] Upvote function with firebase
+- [x] Upvote function with firebase
 - [ ] Delete trip with firebase
 - [ ] Delete trip UI
 - [ ] User account page

@@ -14,9 +14,6 @@ const getters = {
 }
 
 const actions = {
-  upVote({ commit }, id) {
-    commit('incrementTripVotes', id)
-  },
   async getAllTrips({ commit }) {
     commit('setIsLoading', true)
     const trips = await tripsAPI.getTrips()
@@ -29,6 +26,12 @@ const actions = {
     const newTrip = await tripsAPI.createTrip(trip)
     commit('setIsLoading', false)
     return newTrip.id
+  },
+  async upVoteTrip({ commit }, id) {
+    // commit('setIsLoading', true)
+    commit('incrementTripVotes', id)
+    await tripsAPI.upVoteTrip(id)
+    // commit('setIsLoading', false)
   }
 }
 
