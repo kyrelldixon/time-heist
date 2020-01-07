@@ -28,10 +28,10 @@ const actions = {
     return newTrip.id
   },
   async upVoteTrip({ commit }, id) {
-    // commit('setIsLoading', true)
-    commit('incrementTripVotes', id)
+    commit('setIsLoading', true)
     await tripsAPI.upVoteTrip(id)
-    // commit('setIsLoading', false)
+    commit('incrementTripVotes', id)
+    commit('setIsLoading', false)
   }
 }
 

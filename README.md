@@ -15,7 +15,7 @@
 
 ### Todo details
 
-Currently the upvote function is working, but it causes the entire page to enter a loading state. It is temporarily fixed by not triggering any loading state and pre-emptively incrementing the vote, but it would be better if only the upvote button would show a loading state and only upvote on a successful API submission.
+After further review, it causes more bugs to not have a loading state for upvoting, so it has been added back in. A more specific loading state for an individual button is a better solution until realtime updates are implemented.
 
 An alternative solution would be to change the app into a realtime app so that I could remove loading states altogether. This will be an optimization for after the initial project is completely functional.
 
