@@ -38,9 +38,9 @@
             <p v-if="$v.state.$error && !$v.state.required" class="text-red-500 text-xs italic">State is required.</p>
           </div>
         </div>
-        <div>
+        <div class="mb-6">
           <label class="block text-lg font-semibold mb-2">Thumbnail</label>
-          <div v-if="!thumbnail" class="flex items-center mb-6">
+          <div v-if="!thumbnail" class="flex items-center mb-2">
             <label class="inline-block bg-gray-200 cursor-pointer text-center p-4 rounded border border-gray-400 text-sm mr-4">
               Upload Image
               <p>⬆️</p>
@@ -52,7 +52,7 @@
               <p>Max Size: 2MB</p>
             </div>
           </div>
-          <div v-else class="flex items-center mb-6">
+          <div v-else class="flex items-center mb-2">
             <img :src="thumbnailUrl" width="240" height="240" class="mr-4" />
             <styled-button
               type="button"
@@ -62,8 +62,9 @@
               New Thumbnail
             </styled-button>
           </div>
+          <p v-if="!$v.thumbnail.lessThan2Mb" class="text-red-500 text-xs italic">Thumbnail must be less than 2MB.</p>
         </div>
-        <div>
+        <div class="mb-8">
           <label class="block text-lg font-semibold">Gallery</label>
           <p class="text-sm font-semibold mb-4">Recommended Size: 1270x760</p>
           <label class="block bg-gray-200 cursor-pointer text-center rounded border border-gray-400 text-sm mb-4 py-2 md:py-4">
@@ -71,12 +72,13 @@
             <p>⬆️</p>
             <input class="hidden" type="file" ref="galleryImages" multiple @change="setGalleryImages" accept="image/jpeg,image/gif,image/png" />
           </label>
-          <div v-if="galleryImages.length < 1" class="flex mb-8">
+          <div v-if="galleryImages.length < 1" class="flex mb-2">
             <div v-for="n in 3" :key="n" class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
           </div>
-          <div v-else class="flex mb-8">
+          <div v-else class="flex mb-2">
             <img v-for="imgUrl of galleryImageUrls" :src="imgUrl" :key="imgUrl" class="w-12 h-12 mr-4 md:w-20 md:h-20" />
           </div>
+          <p v-if="$v.galleryImages.$error" class="text-red-500 text-xs italic">All images must be less than 2MB.</p>
         </div>
         <div class="mb-10">
           <label class="block text-lg font-semibold mb-2">Description</label>
@@ -97,6 +99,7 @@
 <script>
 import Button from '../components/Button'
 import { required } from 'vuelidate/lib/validators'
+import { fileSize } from '../utils/validators'
 
 export default {
   components: {
@@ -166,6 +169,14 @@ export default {
     description: {
       required
     },
+    thumbnail: {
+      lessThan2Mb: fileSize(2)
+    },
+    galleryImages: {
+      $each: {
+        lessThan2Mb: fileSize(2)
+      }
+    }
   },
 }
 </script>
