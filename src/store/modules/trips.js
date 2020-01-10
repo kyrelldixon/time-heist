@@ -23,9 +23,9 @@ const actions = {
   async createTrip({ commit }, trip) {
     trip.votes = 1
     commit('setIsLoading', true)
-    const newTrip = await tripsAPI.createTrip(trip)
+    const tripId = await tripsAPI.createTrip(trip)
     commit('setIsLoading', false)
-    return newTrip.id
+    return tripId
   },
   async upVoteTrip({ commit }, id) {
     commit('setIsLoading', true)

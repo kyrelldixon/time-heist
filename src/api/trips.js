@@ -9,7 +9,7 @@ export default {
   },
   async createTrip(trip) {
     const newTripRef = await tripsDB.add(trip)
-    return newTripRef.data()
+    return newTripRef.id
   },
   async upVoteTrip(id) {
     const tripRef = await tripsDB.doc(id).get()
