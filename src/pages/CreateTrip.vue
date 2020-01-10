@@ -69,12 +69,13 @@
           <label class="block bg-gray-200 cursor-pointer text-center rounded border border-gray-400 text-sm mb-4 py-2 md:py-4">
             Upload Image
             <p>⬆️</p>
-            <input class="hidden" type="file" />
+            <input class="hidden" type="file" ref="galleryImages" multiple @change="setGalleryImages" />
           </label>
-          <div class="flex mb-8">
-            <div class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
-            <div class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
-            <div class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
+          <div v-if="galleryImages.length < 1" class="flex mb-8">
+            <div v-for="n in 3" :key="n" class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
+          </div>
+          <div v-else class="flex mb-8">
+            <img v-for="imgUrl of galleryImageUrls" :src="imgUrl" :key="imgUrl" class="w-12 h-12 mr-4 md:w-20 md:h-20" />
           </div>
         </div>
         <div class="mb-10">
@@ -108,6 +109,7 @@ export default {
       state: '',
       description: '',
       thumbnail: '',
+      galleryImages: [],
     }
   },
   computed: {
@@ -121,6 +123,9 @@ export default {
     },
     thumbnailUrl: function() {
       return URL.createObjectURL(this.thumbnail)
+    },
+    galleryImageUrls: function() {
+      return this.galleryImages.map(img => URL.createObjectURL(img))
     }
   },
   methods: {
@@ -142,6 +147,10 @@ export default {
     },
     resetThumbnail: function() {
       this.thumbnail = ''
+    },
+    setGalleryImages: function() {
+      const { files } = this.$refs.galleryImages
+      this.galleryImages = Array.from(files)
     }
   },
   validations: {
