@@ -40,17 +40,27 @@
         </div>
         <div>
           <label class="block text-lg font-semibold mb-2">Thumbnail</label>
-          <div class="flex items-center mb-6">
+          <div v-if="!thumbnail" class="flex items-center mb-6">
             <label class="inline-block bg-gray-200 cursor-pointer text-center p-4 rounded border border-gray-400 text-sm mr-4">
               Upload Image
               <p>⬆️</p>
-              <input class="hidden" type="file" />
+              <input class="hidden" type="file" ref="thumbnail" @change="setThumbnail" />
             </label>
             <div class="text-sm font-semibold">
               <p>Recommended Size: 240x240</p>
               <p>JPG, PNG, GIF.</p>
               <p>Max Size: 2MB</p>
             </div>
+          </div>
+          <div v-else class="flex items-center mb-6">
+            <img :src="thumbnailUrl" width="240" height="240" class="mr-4" />
+            <styled-button
+              type="button"
+              class="py-2 px-6 text-sm"
+              @click.native="resetThumbnail"
+            >
+              New Thumbnail
+            </styled-button>
           </div>
         </div>
         <div>
@@ -97,6 +107,7 @@ export default {
       city: '',
       state: '',
       description: '',
+      thumbnail: '',
     }
   },
   computed: {
@@ -107,6 +118,9 @@ export default {
         state: this.state,
         description: this.description,
       }
+    },
+    thumbnailUrl: function() {
+      return URL.createObjectURL(this.thumbnail)
     }
   },
   methods: {
@@ -121,6 +135,13 @@ export default {
       this.$store.dispatch('createTrip', this.trip).then((id) => {
         this.$router.push(`/trip/${id}`)
       })
+    },
+    setThumbnail: function() {
+      const file = this.$refs.thumbnail.files[0]
+      this.thumbnail = file
+    },
+    resetThumbnail: function() {
+      this.thumbnail = ''
     }
   },
   validations: {
