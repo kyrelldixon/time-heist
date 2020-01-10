@@ -44,7 +44,7 @@
             <label class="inline-block bg-gray-200 cursor-pointer text-center p-4 rounded border border-gray-400 text-sm mr-4">
               Upload Image
               <p>⬆️</p>
-              <input class="hidden" type="file" ref="thumbnail" @change="setThumbnail" />
+              <input class="hidden" type="file" ref="thumbnail" @change="setThumbnail" accept="image/jpeg,image/gif,image/png" />
             </label>
             <div class="text-sm font-semibold">
               <p>Recommended Size: 240x240</p>
@@ -69,7 +69,7 @@
           <label class="block bg-gray-200 cursor-pointer text-center rounded border border-gray-400 text-sm mb-4 py-2 md:py-4">
             Upload Image
             <p>⬆️</p>
-            <input class="hidden" type="file" ref="galleryImages" multiple @change="setGalleryImages" />
+            <input class="hidden" type="file" ref="galleryImages" multiple @change="setGalleryImages" accept="image/jpeg,image/gif,image/png" />
           </label>
           <div v-if="galleryImages.length < 1" class="flex mb-8">
             <div v-for="n in 3" :key="n" class="w-12 h-12 border border-gray-300 mr-4 rounded md:w-20 md:h-20"></div>
