@@ -139,10 +139,9 @@ export default {
         this.createTrip()
       }
     },
-    createTrip: function() {
-      this.$store.dispatch('createTrip', this.trip).then((id) => {
-        this.$router.push(`/trip/${id}`)
-      })
+    createTrip: async function() {
+      const id = await this.$store.dispatch('createTrip', this.trip)
+      this.$router.push(`/trip/${id}`)
     },
     setThumbnail: function() {
       const file = this.$refs.thumbnail.files[0]
