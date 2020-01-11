@@ -2,10 +2,9 @@
   <div>
     <orbit-spinner
       :animation-duration="1200"
-      :size="100"
-      class="-mt-40"
+      :size="200"
+      class="mx-auto"
     />
-    <p class="-mt-40 ml-4 text-3xl uppercase font-semibold sm:text-4xl">Loading...</p>
   </div>
 </template>
 

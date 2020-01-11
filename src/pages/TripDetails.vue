@@ -1,6 +1,7 @@
 <template>
   <section class="bg-gray-200 py-20">
-    <div v-if="trip && !$store.state.utils.isLoading" class="flex flex-col items-start mx-4 max-w-4xl lg:mx-auto">
+    <loading v-if="$store.state.utils.isLoading" />
+    <div v-else-if="trip && !$store.state.utils.isLoading" class="flex flex-col items-start mx-4 max-w-4xl lg:mx-auto">
       <div class="flex justify-between items-end w-full mb-10">
         <div class="flex">
           <img
@@ -65,11 +66,16 @@
 </template>
 
 <script>
+import Loading from '../components/Loading'
+
 export default {
   data: function() {
     return {
       trip: null
     }
+  },
+  components: {
+    'loading': Loading,
   },
   created: function() {
     const tripId = this.$route.params.id

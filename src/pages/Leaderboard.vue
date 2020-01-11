@@ -2,7 +2,7 @@
   <section class="bg-gray-200 pt-20 pb-2">
     <div class="mx-4 max-w-4xl lg:mx-auto">
       <h1 class="font-bold uppercase tracking-wide mb-8">Leaderboard</h1>
-      <loading v-if="$store.state.utils.isLoading" />
+      <loading class="mt-20" v-if="$store.state.utils.isLoading" />
       <leaderboard-card
         v-else
         v-for="trip in sortedTrips"
