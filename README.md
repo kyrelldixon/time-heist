@@ -9,8 +9,8 @@
 - [ ] Link trip with user firebase
 - [ ] Edit trip
 - [ ] Upload images firebase
-- [ ] Upload images UI
-- [ ] Fix loading styles
+- [x] Upload images UI
+- [x] Fix loading styles
 - [ ] Make loading state more specific
 
 ### Todo details
